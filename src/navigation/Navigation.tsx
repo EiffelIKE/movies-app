@@ -10,7 +10,11 @@ export const Navigation = () => {
       initialRouteName="home"
       drawerContent={() => <DrawerContent />}
     >
-      <Drawer.Screen name="Movies" component={StackNavigation} />
+      <Drawer.Screen
+        name="Movies"
+        component={StackNavigation}
+        options={{ headerShown: false }}
+      />
     </Drawer.Navigator>
   );
 };
