@@ -6,5 +6,10 @@
     "src",
     "babel.config.js",
     "index.js",
-  ]
+  ],
+  "compilerOptions": {
+    "types": [
+      "@types/styled-components-react-native"
+    ]
+  }
 }

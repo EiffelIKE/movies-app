@@ -1,15 +1,14 @@
-import { DrawerContentScrollView } from '@react-navigation/drawer';
-import { Drawer } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useState } from 'react';
-import type { RootStackProps } from '../StackNavigation';
-
-type Props = NativeStackScreenProps<RootStackProps>;
-type Screen = 'home' | 'news' | 'populars';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
+import { Drawer, TouchableRipple, Text, Switch } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
+import { useThemeContext } from '../../Theme/context';
+import { SwitchContainer } from './styles';
+import type { Props, Screen } from './types';
 
 export const DrawerContent = () => {
   const navigation = useNavigation<Props['navigation']>();
+  const { active, toggleTheme } = useThemeContext();
   const [activeScreen, setActiveScreen] = useState<string>('home');
 
   const handlePress = (screen: Screen) => {
@@ -31,10 +30,21 @@ export const DrawerContent = () => {
           onPress={() => handlePress('news')}
         />
         <Drawer.Item
-          label="Populars"
+          label="Popular"
           active={activeScreen === 'populars'}
           onPress={() => handlePress('populars')}
         />
+      </Drawer.Section>
+      <Drawer.Section title="Options">
+        <TouchableRipple>
+          <SwitchContainer>
+            <Text>{`${active === 'dark' ? 'Dark' : 'Ligth'} Theme`}</Text>
+            <Switch
+              value={active === 'dark'}
+              onValueChange={() => toggleTheme()}
+            />
+          </SwitchContainer>
+        </TouchableRipple>
       </Drawer.Section>
     </DrawerContentScrollView>
   );

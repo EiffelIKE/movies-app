@@ -1,19 +1,26 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home, Movie, Search, News, Popular } from '../screens';
-
-export type RootStackProps = {
-  movie: undefined;
-  home: undefined;
-  populars: undefined;
-  news: undefined;
-  search: undefined;
-};
+import { MenuButton, SearchButton, BackButton } from '../components';
+import type { RootStackProps } from './types';
 
 const Stack = createNativeStackNavigator<RootStackProps>();
 
-export const StackNavigation = () => {
+export const StackNavigation = (props: any) => {
+  const { navigation } = props;
   return (
-    <Stack.Navigator screenOptions={{ headerBackVisible: false }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerBackVisible: false,
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <MenuButton onPress={() => navigation.openDrawer()} />
+        ),
+        headerRight: () => (
+          <SearchButton onPress={() => navigation.navigate('search')} />
+        ),
+      }}
+    >
       <Stack.Screen name="home" component={Home} options={{ title: 'Home' }} />
       <Stack.Screen
         name="movie"
@@ -33,7 +40,11 @@ export const StackNavigation = () => {
       <Stack.Screen
         name="search"
         component={Search}
-        options={{ title: 'Search movies' }}
+        options={{
+          title: '',
+          headerLeft: () => <BackButton onPress={() => navigation.goBack()} />,
+          headerRight: () => null,
+        }}
       />
     </Stack.Navigator>
   );
