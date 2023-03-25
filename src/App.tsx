@@ -1,18 +1,15 @@
-import { SafeAreaView, Text } from 'react-native';
-import { Button } from 'react-native-paper';
+import { StatusBar } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { Navigation } from './navigation';
 
 export const App = () => {
   return (
-    <SafeAreaView>
-      <Text>Movies App</Text>
-      <Button
-        icon="abacus"
-        mode="contained"
-        onPress={() => console.log('Pressed')}
-        style={{ width: '50%', alignSelf: 'center', marginTop: 20 }}
-      >
-        Press Me
-      </Button>
-    </SafeAreaView>
+    <PaperProvider>
+      <NavigationContainer>
+        <StatusBar />
+        <Navigation />
+      </NavigationContainer>
+    </PaperProvider>
   );
 };
