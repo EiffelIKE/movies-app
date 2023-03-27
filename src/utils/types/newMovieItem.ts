@@ -4,3 +4,5 @@ export interface NewMovieItem {
   poster_path: string;
   title: string;
 }
+
+export type NewMovieItemList = Array<NewMovieItem>;

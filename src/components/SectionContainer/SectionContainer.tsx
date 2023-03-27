@@ -10,7 +10,7 @@ export const SectionContainer: FC<SectionContainerProps> = ({
   titleStyle,
 }) => {
   return (
-    <View style={[{ marginTop: 10 }, containerStyle]}>
+    <View style={[{ marginTop: 20 }, containerStyle]}>
       <Title style={titleStyle || {}}>{title}</Title>
       {children}
     </View>

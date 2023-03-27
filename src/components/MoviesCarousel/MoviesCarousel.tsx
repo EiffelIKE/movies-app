@@ -2,13 +2,16 @@ import { FC } from 'react';
 import Carousel from 'react-native-snap-carousel';
 import type { MoviesCarouselProps } from './types';
 
-export const NewMoviesCarousel: FC<MoviesCarouselProps> = ({
+export const MoviesCarousel: FC<MoviesCarouselProps> = ({
   data,
   sliderWidth,
   itemWidth,
   RenderItem,
   getGenreName,
   onPress,
+  firstItem,
+  inactiveSlideScale,
+  inactiveSliderOpacity,
 }) => {
   return (
     <Carousel
@@ -16,6 +19,9 @@ export const NewMoviesCarousel: FC<MoviesCarouselProps> = ({
       data={data}
       sliderWidth={sliderWidth}
       itemWidth={itemWidth}
+      firstItem={firstItem || 0}
+      inactiveSlideScale={inactiveSlideScale}
+      inactiveSlideOpacity={inactiveSliderOpacity}
       renderItem={({ item }) => (
         <RenderItem
           data={item}

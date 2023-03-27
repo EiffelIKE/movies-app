@@ -1,9 +1,8 @@
 import { View, Text } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useGetMovie } from './hooks';
 
 export const Movie = () => {
-  const route = useRoute();
-  console.log(route);
+  const { movie } = useGetMovie();
 
   return (
     <View>
