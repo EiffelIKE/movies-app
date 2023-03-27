@@ -1,15 +1,26 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import { useDimensions, useAllGenres } from '../../utils/hooks';
 import { useNewMovies } from './hooks/useNewMovies';
+import { NewMoviesCarousel, NewMovie } from '../../components';
 import { NewMoviesContainer, NewMoviesTitle } from './styles';
 
 export const Home = () => {
-  const { newMovies } = useNewMovies();
+  const { width } = useDimensions();
+  const { itemsData } = useNewMovies();
+  const { getGenreName } = useAllGenres();
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      {newMovies.length > 0 && (
+      {itemsData.length > 0 && (
         <NewMoviesContainer>
           <NewMoviesTitle>New Movies</NewMoviesTitle>
-          <Text>{newMovies.length}</Text>
+          <NewMoviesCarousel
+            sliderWidth={width}
+            itemWidth={0.7 * width}
+            data={itemsData}
+            RenderItem={NewMovie}
+            getGenreName={getGenreName}
+          />
         </NewMoviesContainer>
       )}
     </ScrollView>

@@ -1,0 +1,1 @@
+export { NewMovie } from './NewMovie';

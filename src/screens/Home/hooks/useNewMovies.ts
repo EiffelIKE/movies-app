@@ -1,10 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useLazyGetNewMoviesQuery } from '../../../api/slices/getNewMovies';
-import type { NewMoviesList } from '../../../utils/types/newMovie';
+import { useEffect, useState, useMemo } from 'react';
+import { useLazyGetNewMoviesQuery } from '../../../api/slices/useGetNewMovies';
+import { getMoviesData } from '../../../utils/functions';
+import type { NewMoviesList } from '../../../utils/types';
 
 export const useNewMovies = () => {
   const [getNewMovies, { data, isSuccess }] = useLazyGetNewMoviesQuery();
   const [newMovies, setNewMovies] = useState<NewMoviesList>([]);
+
+  const itemsData = useMemo(() => {
+    return getMoviesData(newMovies);
+  }, [newMovies]);
 
   useEffect(() => {
     getNewMovies(1);
@@ -16,5 +21,5 @@ export const useNewMovies = () => {
     }
   }, [data, isSuccess]);
 
-  return { newMovies };
+  return { newMovies, itemsData };
 };

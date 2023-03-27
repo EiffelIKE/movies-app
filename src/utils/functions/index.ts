@@ -1,0 +1,1 @@
+export { getMoviesData } from './getMoviesData';
