@@ -8,6 +8,7 @@ export const NewMoviesCarousel: FC<MoviesCarouselProps> = ({
   itemWidth,
   RenderItem,
   getGenreName,
+  onPress,
 }) => {
   return (
     <Carousel
@@ -16,7 +17,11 @@ export const NewMoviesCarousel: FC<MoviesCarouselProps> = ({
       sliderWidth={sliderWidth}
       itemWidth={itemWidth}
       renderItem={({ item }) => (
-        <RenderItem data={item} getGenreName={getGenreName} />
+        <RenderItem
+          data={item}
+          getGenreName={getGenreName}
+          onPress={() => onPress && onPress(item.id)}
+        />
       )}
     />
   );

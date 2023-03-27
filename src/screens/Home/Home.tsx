@@ -1,28 +1,41 @@
 import { ScrollView } from 'react-native';
-import { useDimensions, useAllGenres } from '../../utils/hooks';
-import { useNewMovies } from './hooks/useNewMovies';
-import { NewMoviesCarousel, NewMovie } from '../../components';
-import { NewMoviesContainer, NewMoviesTitle } from './styles';
+import { useDimensions, useAllGenres, useSetIdParam } from '../../utils/hooks';
+import { useNewMovies, useActiveGenre } from './hooks';
+import {
+  NewMoviesCarousel,
+  NewMovie,
+  SectionContainer,
+  GenresList,
+} from '../../components';
 
 export const Home = () => {
   const { width } = useDimensions();
   const { itemsData } = useNewMovies();
-  const { getGenreName } = useAllGenres();
+  const { allGenres, getGenreName } = useAllGenres();
+  const { activeGenre, handleActiveGenre } = useActiveGenre();
+  const { setIdNavigate } = useSetIdParam();
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {itemsData.length > 0 && (
-        <NewMoviesContainer>
-          <NewMoviesTitle>New Movies</NewMoviesTitle>
+        <SectionContainer title="New Movies">
           <NewMoviesCarousel
             sliderWidth={width}
             itemWidth={0.7 * width}
             data={itemsData}
             RenderItem={NewMovie}
             getGenreName={getGenreName}
+            onPress={(id: number) => setIdNavigate(id)}
           />
-        </NewMoviesContainer>
+        </SectionContainer>
       )}
+      <SectionContainer title="Movies by Genre">
+        <GenresList
+          data={allGenres}
+          activeGenre={activeGenre}
+          onPress={handleActiveGenre}
+        />
+      </SectionContainer>
     </ScrollView>
   );
 };

@@ -3,3 +3,7 @@ export { SearchButton } from './SearchButton';
 export { BackButton } from './BackButton';
 export { NewMoviesCarousel } from './NewMoviesCarousel';
 export { NewMovie } from './NewMovie';
+export { SectionContainer } from './SectionContainer';
+export { Genre } from './Genre';
+export { Title } from './Title';
+export { GenresList } from './GenresList';

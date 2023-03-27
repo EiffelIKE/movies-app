@@ -1,7 +1,11 @@
 export type RootStackProps = {
-  movie: undefined;
+  movie: MovieScreen;
   home: undefined;
   populars: undefined;
   news: undefined;
   search: undefined;
 };
+
+export interface MovieScreen {
+  id: number;
+}

@@ -7,5 +7,6 @@ export interface MoviesCarouselProps {
   sliderWidth: number;
   itemWidth: number;
   RenderItem: FC<NewMovieProps>;
+  onPress?: (id: number) => void;
   getGenreName?: (genre: MovieGenres) => Array<string | undefined>;
 }

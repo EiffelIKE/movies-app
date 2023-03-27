@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Title } from 'react-native-paper';
+import { Text, Title } from 'react-native-paper';
 
 export const MovieImg = styled.Image`
   width: 100%;
@@ -14,4 +14,9 @@ export const MovieTitle = styled(Title)`
 export const MovieGenres = styled.View`
   flex-direction: row;
   margin: 0 10px;
+`;
+
+export const Genre = styled(Text)`
+  color: #8997a5;
+  font-size: 12px;
 `;
