@@ -10,3 +10,6 @@ export { GenresList } from './GenresList';
 export { MoviesByGenre } from './MoviesByGenre';
 export { TrailerModal } from './TrailerModal';
 export { CloseButton } from './CloseButton';
+export { YoutubePlayer } from './YoutubePlayer';
+export { RatedMovie } from './RatedMovie';
+export { Overview } from './Overview';

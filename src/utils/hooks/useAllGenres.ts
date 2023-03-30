@@ -8,14 +8,11 @@ export const useAllGenres = () => {
 
   const getGenreName = useCallback(
     (genres: MovieGenres) => {
-      if (allGenres.length > 0) {
-        const genresName = genres.map((genre) => {
-          const currentGenre = allGenres.find((item) => item.id === genre);
-          return currentGenre?.name;
-        });
-        return genresName;
-      }
-      return [];
+      const genresName: GenresList = genres.map((genre) => {
+        const currentGenre = allGenres.find((item) => item?.id === genre);
+        return currentGenre;
+      });
+      return genresName;
     },
     [allGenres]
   );

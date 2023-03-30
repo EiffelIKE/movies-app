@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import type { NewMovieItem, MovieGenres } from '../../utils/types';
+import type { NewMovieItem, MovieGenres, GenresList } from '../../utils/types';
 import { NewMovieProps } from '../NewMovie/types';
 
 export interface MoviesCarouselProps {
@@ -11,5 +11,5 @@ export interface MoviesCarouselProps {
   inactiveSlideScale?: number;
   inactiveSliderOpacity?: number;
   onPress?: (id: number) => void;
-  getGenreName?: (genre: MovieGenres) => Array<string | undefined>;
+  getGenreName?: (genre: MovieGenres) => GenresList;
 }

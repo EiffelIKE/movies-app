@@ -5,10 +5,13 @@ export interface Theme {
   paperTheme: MD2Theme | MD3Theme;
   navigationTheme: NavigationTheme;
   barStyle: string;
+  buttons: string;
+  ratingColor: string;
+  ratingBGColor: string;
 }
 
 export interface ThemeContextKeys {
-  active: string;
+  active: 'dark' | 'ligth';
   theme: Theme;
   toggleTheme: () => void;
 }

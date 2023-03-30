@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import { useLazyGetMoviesByIdQuery } from '../../../api/slices/useGetMovieById';
-import { MovieRoute, NewMovie } from '../../../utils/types';
+import { MovieRoute, Movie } from '../../../utils/types';
 
 export const useGetMovie = () => {
   const [getMoviesById, { data, isSuccess }] = useLazyGetMoviesByIdQuery();
-  const [movie, setMovie] = useState<NewMovie>();
+  const [movie, setMovie] = useState<Movie>();
   const { params } = useRoute<MovieRoute>();
   const { id } = params;
 
   useEffect(() => {
-    getMoviesById(id);
+    if (id) {
+      getMoviesById(id);
+    }
   }, [id, getMoviesById]);
 
   useEffect(() => {
