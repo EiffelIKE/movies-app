@@ -5,6 +5,7 @@ export interface Theme {
   paperTheme: MD2Theme | MD3Theme;
   navigationTheme: NavigationTheme;
   barStyle: string;
+  buttons: string;
 }
 
 export interface ThemeContextKeys {

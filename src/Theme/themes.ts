@@ -13,10 +13,12 @@ export const darkTheme: Theme = {
   paperTheme: MD2DarkTheme,
   navigationTheme: DarkTheme,
   barStyle: '#15212b',
+  buttons: '#375166',
 };
 
 export const ligthTheme: Theme = {
   paperTheme: MD2LightTheme,
   navigationTheme: DefaultTheme,
   barStyle: '#ffffff',
+  buttons: '#8697a5',
 };

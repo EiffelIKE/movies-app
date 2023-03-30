@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ScrollView, StatusBar } from 'react-native';
-import { useGetMovie } from './hooks';
+import { useGetMovie, useGetTrailer } from './hooks';
 import { MovieImg } from './styles';
 import { BASE_IMG } from '../../utils/const/config';
 import { TrailerModal, CloseButton } from '../../components';
@@ -8,6 +8,7 @@ import { TrailerModal, CloseButton } from '../../components';
 export const Movie = () => {
   const { movie } = useGetMovie();
   const [showTrailer, setShowTrailer] = useState<boolean>(false);
+  const { trailer } = useGetTrailer();
 
   return (
     <>
@@ -15,6 +16,11 @@ export const Movie = () => {
         <StatusBar
           backgroundColor="transparent"
           translucent
+          barStyle={
+            movie && Object.keys(movie).length > 0
+              ? 'light-content'
+              : 'dark-content'
+          }
           hidden={showTrailer}
         />
         {movie && Object.keys(movie).length > 0 && (
@@ -36,10 +42,13 @@ export const Movie = () => {
           </>
         )}
       </ScrollView>
-      <TrailerModal
-        visible={showTrailer}
-        onClose={() => setShowTrailer(!showTrailer)}
-      />
+      {trailer && (
+        <TrailerModal
+          visible={showTrailer}
+          onClose={() => setShowTrailer(!showTrailer)}
+          trailer={trailer}
+        />
+      )}
     </>
   );
 };

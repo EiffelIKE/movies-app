@@ -6,3 +6,4 @@ export type { NewMovieItem } from './newMovieItem';
 export type { Navigation } from './navigation';
 export type { NewMovieItemList } from './newMovieItem';
 export type { MovieRoute } from './screensRoutes';
+export type { Trailer, TrailerList } from './trailer';

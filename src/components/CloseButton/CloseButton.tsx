@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { StyledIcon } from './styles';
+import { ThemeContext } from '../../Theme/context';
 import type { CloseButtonProps } from './types';
 
 export const CloseButton: FC<CloseButtonProps> = ({
@@ -7,10 +8,11 @@ export const CloseButton: FC<CloseButtonProps> = ({
   style,
   toOpen,
 }) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <StyledIcon
       icon={toOpen ? 'play' : 'close'}
-      style={style}
+      style={[{ backgroundColor: theme.buttons }, style]}
       onPress={() => onPress()}
     />
   );

@@ -10,7 +10,9 @@ export const useGetMovie = () => {
   const { id } = params;
 
   useEffect(() => {
-    getMoviesById(id);
+    if (id) {
+      getMoviesById(id);
+    }
   }, [id, getMoviesById]);
 
   useEffect(() => {
