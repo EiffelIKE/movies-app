@@ -14,6 +14,8 @@ export const darkTheme: Theme = {
   navigationTheme: DarkTheme,
   barStyle: '#15212b',
   buttons: '#375166',
+  ratingColor: '#ffc205',
+  ratingBGColor: '#192734',
 };
 
 export const ligthTheme: Theme = {
@@ -21,4 +23,6 @@ export const ligthTheme: Theme = {
   navigationTheme: DefaultTheme,
   barStyle: '#ffffff',
   buttons: '#8697a5',
+  ratingColor: '#ffc205',
+  ratingBGColor: '#f0f0f0',
 };

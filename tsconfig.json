@@ -6,6 +6,7 @@
     "src",
     "babel.config.js",
     "index.js",
+    "photos.d.ts",
   ],
   "compilerOptions": {
     "types": [

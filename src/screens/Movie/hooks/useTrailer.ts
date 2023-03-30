@@ -4,11 +4,16 @@ import { useLazyGetMovieTrailerQuery } from '../../../api/slices/useGetMovieTrai
 import { getTrailerKey } from '../../../utils/functions';
 import type { MovieRoute } from '../../../utils/types';
 
-export const useGetTrailer = () => {
+export const useTrailer = () => {
   const [getMovieTrailer, { data, isSuccess }] = useLazyGetMovieTrailerQuery();
   const [trailer, setTrailer] = useState<string>();
+  const [showTrailer, setShowTrailer] = useState<boolean>(false);
   const { params } = useRoute<MovieRoute>();
   const { id } = params;
+
+  const toggleTrailer = () => {
+    setShowTrailer(!showTrailer);
+  };
 
   useEffect(() => {
     if (id) {
@@ -23,5 +28,5 @@ export const useGetTrailer = () => {
     }
   }, [data, isSuccess]);
 
-  return { trailer };
+  return { trailer, showTrailer, toggleTrailer };
 };

@@ -1,4 +1,4 @@
-export type GenresList = Array<Genre>;
+export type GenresList = Array<Genre | undefined>;
 
 export interface Genre {
   id: number;

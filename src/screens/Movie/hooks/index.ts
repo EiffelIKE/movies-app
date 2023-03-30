@@ -1,2 +1,2 @@
 export { useGetMovie } from './useGetMovie';
-export { useGetTrailer } from './useGetTrailer';
+export { useTrailer } from './useTrailer';
