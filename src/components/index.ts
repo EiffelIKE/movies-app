@@ -8,3 +8,5 @@ export { Genre } from './Genre';
 export { Title } from './Title';
 export { GenresList } from './GenresList';
 export { MoviesByGenre } from './MoviesByGenre';
+export { TrailerModal } from './TrailerModal';
+export { CloseButton } from './CloseButton';

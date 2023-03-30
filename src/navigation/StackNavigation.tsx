@@ -25,7 +25,11 @@ export const StackNavigation = (props: any) => {
       <Stack.Screen
         name="movie"
         component={Movie}
-        options={{ title: 'DinamicTitle' }}
+        options={{
+          title: '',
+          headerTransparent: true,
+          headerLeft: () => <BackButton onPress={() => navigation.goBack()} />,
+        }}
       />
       <Stack.Screen
         name="populars"
