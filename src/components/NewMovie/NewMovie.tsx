@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-array-index-key */
 import { FC } from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
@@ -22,10 +23,9 @@ export const NewMovie: FC<NewMovieProps> = ({
         <MovieGenres>
           {data.genre_ids.length > 0
             ? genres?.map((genre, index, arr) => (
-                <Genre key={index}>{`${genre}${
-                  index !== arr.length - 1 ? ', ' : ''
+              <Genre key={index}>{`${genre?.name}${index !== arr.length - 1 ? ', ' : ''
                 }`}</Genre>
-              ))
+            ))
             : null}
         </MovieGenres>
       </View>
