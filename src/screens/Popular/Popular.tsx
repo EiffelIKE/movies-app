@@ -1,13 +1,13 @@
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { usePopular } from './hooks/usePopular';
 import { useSetIdParam } from '../../utils/hooks';
-import { MovieItem } from '../../components';
+import { MovieItem, LoadMoreButton } from '../../components';
 
 export const Popular = () => {
-  const { popularMovies } = usePopular();
+  const { popularMovies, increasePage, seeMore } = usePopular();
   const { setIdNavigate } = useSetIdParam();
   return (
-    <ScrollView style={{ marginTop: 20 }}>
+    <ScrollView style={{ marginTop: 20 }} showsVerticalScrollIndicator={false}>
       {popularMovies &&
         popularMovies.map((movie) => {
           return (
@@ -45,6 +45,12 @@ export const Popular = () => {
             </TouchableOpacity>
           );
         })}
+      {seeMore && (
+        <LoadMoreButton
+          style={{ marginBottom: 20 }}
+          onPress={() => increasePage()}
+        />
+      )}
     </ScrollView>
   );
 };

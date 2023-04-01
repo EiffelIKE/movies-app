@@ -27,7 +27,7 @@ export const MovieItem: FC<MovieItemProps> = ({
   launchStyle,
 }) => {
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={movieContainerStyle}>
         <Image
           source={{ uri: `${BASE_IMG}/w500/${poster_path}` }}
