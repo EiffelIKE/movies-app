@@ -18,3 +18,5 @@ export interface Movie extends NewMovie {
   status: string;
   tagline: string;
 }
+
+export type MovieList = Array<Movie>;

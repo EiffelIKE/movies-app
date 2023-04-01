@@ -13,4 +13,4 @@ export type {
   ProductionCompaies,
   ProductionCompaniesList,
 } from './productionCompanies';
-export type { Movie } from './movie';
+export type { Movie, MovieList } from './movie';
