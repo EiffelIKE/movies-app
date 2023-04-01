@@ -13,3 +13,5 @@ export { CloseButton } from './CloseButton';
 export { YoutubePlayer } from './YoutubePlayer';
 export { RatedMovie } from './RatedMovie';
 export { Overview } from './Overview';
+export { MovieItem } from './MovieItem';
+export { LoadMoreButton } from './LoadMoreButton';

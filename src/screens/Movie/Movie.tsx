@@ -1,15 +1,6 @@
-import { ScrollView, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { useGetMovie, useTrailer } from './hooks';
-import { MovieImg } from './styles';
-import { BASE_IMG } from '../../utils/const/config';
-import {
-  TrailerModal,
-  CloseButton,
-  SectionContainer,
-  GenresList,
-  RatedMovie,
-  Overview,
-} from '../../components';
+import { TrailerModal, MovieItem } from '../../components';
 
 export const Movie = () => {
   const { movie } = useGetMovie();
@@ -28,38 +19,32 @@ export const Movie = () => {
         hidden={showTrailer}
       />
       {movie && Object.keys(movie).length > 0 && (
-        <>
-          <MovieImg
-            source={{ uri: `${BASE_IMG}/w500/${movie?.poster_path}` }}
-          />
-          <CloseButton
-            onPress={() => toggleTrailer()}
-            toOpen
-            style={{
-              alignSelf: 'flex-end',
-              marginTop: -40,
-              marginRight: 20,
-              width: 60,
-              height: 60,
-            }}
-          />
-          <ScrollView>
-            <SectionContainer
-              title={movie.title}
-              containerStyle={{ marginTop: 0 }}
-            >
-              <GenresList data={movie.genres} />
-              <RatedMovie
-                starValue={movie.vote_average / 2}
-                votes={movie.vote_count}
-              />
-              <Overview
-                decription={movie.overview}
-                releaseDate={movie.release_date}
-              />
-            </SectionContainer>
-          </ScrollView>
-        </>
+        <MovieItem
+          poster_path={movie.poster_path}
+          imageStyle={{
+            width: '100%',
+            height: 500,
+            borderBottomLeftRadius: 30,
+            borderBottomRightRadius: 30,
+          }}
+          onPress={() => toggleTrailer()}
+          buttonStyle={{
+            alignSelf: 'flex-end',
+            marginTop: -40,
+            marginRight: 20,
+            width: 60,
+            height: 60,
+          }}
+          title={movie.title}
+          containerStyle={{ marginTop: 0 }}
+          genres={movie.genres}
+          starValue={movie.vote_average / 2}
+          votes={movie.vote_count}
+          description={movie.overview}
+          releaseDate={movie.release_date}
+          launchStyle={{ marginTop: 20 }}
+          ratingContainerStyle={{ flexDirection: 'row', alignItems: 'center' }}
+        />
       )}
       {trailer && (
         <TrailerModal

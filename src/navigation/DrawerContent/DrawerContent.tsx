@@ -30,7 +30,7 @@ export const DrawerContent = () => {
           onPress={() => handlePress('news')}
         />
         <Drawer.Item
-          label="Popular"
+          label="Popular Movies"
           active={activeScreen === 'populars'}
           onPress={() => handlePress('populars')}
         />

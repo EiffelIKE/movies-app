@@ -7,7 +7,7 @@ export const useGetPopularMovies = apiSlice.injectEndpoints({
       query: (page: number | undefined) =>
         `/movie/popular?api_key=${API_KEY}&language=${LANG}&page=${page || 1}`,
       transformResponse: (response: any) => {
-        return response.results;
+        return response;
       },
     }),
   }),

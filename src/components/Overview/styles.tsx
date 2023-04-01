@@ -12,6 +12,5 @@ export const Description = styled(Text)`
 
 export const LaunchDate = styled(Text)`
   color: #8697a5;
-  margin-top: 20px;
   font-size: 14px;
 `;
